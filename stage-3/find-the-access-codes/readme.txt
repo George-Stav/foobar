@@ -9,20 +9,6 @@ Write a function solution(l) that takes a list of positive integers l and counts
 
 For example, [1, 2, 3, 4, 5, 6] has the triples: [1, 2, 4], [1, 2, 6], [1, 3, 6], making the solution 3 total.
 
-[2, 3, 4, 5, 6, 7, 8, 12, 12]
-
-1. -> [2, 3]
-2. 2*y < max(l) and y%x == 0 -> [[2, 4], [2, 6], [3, 6]]
-3. z%y == 0 -> [[2, 4, 8], [2, 4, 12], [2, 6, 12], [3, 6, 12]]
-
-[2] - 3
-[2] - 4 x -> [2, 4] - 5
-[2] - 5
-[2] - 6 x ->
-[2] - 7
-[2] - 8
-[2] - 12
-
 Languages
 =========
 
