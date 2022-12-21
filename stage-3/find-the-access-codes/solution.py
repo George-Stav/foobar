@@ -72,11 +72,13 @@ def third_solution(l):
     if len(l) < 3:
         return 0
     l = l[::-1]
-    # l.reverse()
 
     t1 = []
     tfn = 0
     for k, z in enumerate(l[:-2]):
+        if t1 and t1[-1][0] == z:
+            t1.append(t1[-1][1:])
+            continue
         t2 = [z]
         for j, y in enumerate(l[k+1:]):
             if z%y == 0:
@@ -99,12 +101,6 @@ def third_solution(l):
     return tfn
 
 
-# third_solution([1, 1, 1])
 start = time()
-# first_solution([2, 3, 4, 5, 6, 7, 8, 12, 12, 12])
-# print(third_no_memo(range(1, 5000, 5)))
-# first = time()
-# print("third_no_memo: ", first - start)
-# third_solution([2, 3, 4, 5, 6, 7, 8, 12, 12, 12])
 print(third_solution([1] * 2000))
 print("third solution took: ", time() - start)
