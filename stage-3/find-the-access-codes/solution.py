@@ -69,6 +69,8 @@ def third_with_memo(l):
     return tfn
 
 def third_solution(l):
+    # Relies too much on pairs (e.g. [1] * 2000)
+    # Has time issues when pairs are not present (e.g. [pow(2, x) for x in range(0, 20)] * 100)
     if len(l) < 3:
         return 0
     l = l[::-1]
@@ -101,6 +103,19 @@ def third_solution(l):
     return tfn
 
 
+def dynamic_solution(l):
+    c = [0] * len(l)
+    count = 0
+    for i in range(0,len(l)):
+        for j in range(0, i):
+            if l[i] % l[j] == 0:
+                c[i] = c[i] + 1
+                count = count + c[j]
+    return count
+
 start = time()
-print(third_solution([1] * 2000))
-print("third solution took: ", time() - start)
+print(dynamic_solution([1]*2000))
+first = time()
+print("rogue solution took: ", first - start)
+print(third_solution([1]*2000))
+print("third solution took: ", time() - first)
